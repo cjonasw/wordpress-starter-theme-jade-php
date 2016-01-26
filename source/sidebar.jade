@@ -1,0 +1,7 @@
+aside
+  h2 Categories
+  ul
+    - foreach(get_categories('show_count=0&title_li=&hide_empty=0&exclude=1') as $category){
+      li
+        a(href= get_category_link($category->term_id))= $category->name
+    - }

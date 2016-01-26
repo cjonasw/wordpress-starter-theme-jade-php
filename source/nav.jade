@@ -1,0 +1,4 @@
+nav
+  - foreach(get_pages() as $page){
+    a(href= get_page_link($page->ID))= $page->post_title
+  - }

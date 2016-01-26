@@ -1,0 +1,29 @@
+extends ./source/layout.jade
+
+block content
+  :php
+    if (have_posts()) :
+    while (have_posts()) : the_post();
+
+  article
+    date= the_time('j F \'y')
+    h2: a(href= the_permalink())= the_title()
+    p= the_excerpt()
+
+  - endwhile;
+
+  .pagination
+    ul
+      - if(next_posts_link('Older')) :
+      li.older= next_posts_link('Older')
+      - endif;
+
+      - if(previous_posts_link('Newer')) :
+      li.older= previous_posts_link('Newer')
+      - endif;
+
+  - else :
+
+  | Nothing found
+
+  - endif;

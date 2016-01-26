@@ -1,0 +1,23 @@
+doctype
+html(lang='en')
+
+  head
+    meta(charset="UTF-8")
+    title= wp_title('')
+    link(rel="stylesheet" type="text/css" href= bloginfo('stylesheet_url') media="screen")
+    - wp_head();
+
+  body
+
+    header
+      a(href= esc_url( home_url( '/' ) ))= get_bloginfo()
+      - get_template_part('nav')
+    
+    block content
+
+    :php
+
+      get_sidebar();
+      wp_footer();
+      
+  script(src='http://localhost:1337/livereload.js?snipver=1')
